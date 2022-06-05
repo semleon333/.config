@@ -1,0 +1,80 @@
+#theme = "native"
+icons = "awesome"
+#icons_format = "<span font_family='NotoSans Nerd Font'>{icon}</span> "
+
+
+[theme.overrides]
+separator = "| "
+critical_fg = "#a02020"
+warning_fg = "#a0a020"
+good_fg = "#20a020"
+
+[[block]]
+block = "focused_window"
+max_width = 20
+show_marks = "visible"
+
+[[block]]
+block = "net"
+format = "{ip}"# {speed_down:4}{speed_up:4}"
+[theme]
+name = "native"
+
+[[block]]
+block = "custom"
+command = 'curl eth0.me'
+on_click = 'curl eth0.me'
+interval = "once"
+
+[[block]]
+block = "custom"
+command = ''' df -h /BigDisk / | grep / | awk '{printf("%s ", $6" "$4"; ")}' '''
+on_click = ''' df -h /BigDisk / | grep / | awk '{printf("%s ", $6" "$4"; ")}' '''
+interval = 10
+
+#[[block]]
+#block = "disk_space"
+#format = "{icon}/:{available}"
+#path = "/"
+#info_type = "available"
+#interval = 5
+
+#[[block]]
+#block = "custom"
+#command = 'echo \#'
+#on_click = "exec i3lock -c 101010 -ef"
+#interval = "once"
+
+[[block]]
+block = "sound"
+on_click = "pavucontrol"
+#on_click = '''alacritty -e "xdotool keydown super shift space && xdotool keyup space shift super && htop"'''
+
+[[block]]
+block = "memory"
+format_mem = "{mem_used}/{mem_total} S{swap_used}/{swap_total}"
+clickable = false
+
+[[block]]
+block = "cpu"
+format = "{utilization}{barchart}{frequency}"
+
+[[block]]
+block = "nvidia_gpu"
+label = ""
+
+#[[block]]
+#block = "load"
+#format = "{1m}"
+
+[[block]]
+block = "time"
+interval = 1
+format = "%A %d/%m/%Y %R"
+
+[[block]]
+block = "custom"
+interval = 0.5
+command = ''' xset -q|grep LED| awk '{ if (substr ($10,5,1) == 1) print "__RU"; else print "EN__"; }' '''
+on_click = 'xkb-switch -n'
+

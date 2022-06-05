@@ -217,7 +217,7 @@ set $wsDis "p Dis "
 bindsym $mod+p workspace $wsDis
 bindsym $mod+Shift+p move container to workspace $wsDis
 assign [class="^discord$"] → $wsDis
-exec /usr/bin/discord
+#exec /usr/bin/discord
 
 set $wsTB "o TB "
 bindsym $mod+o workspace $wsTB
